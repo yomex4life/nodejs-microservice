@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts-depl
+spec: 
+  replicas: 1
+  selector: # Telling the deployment which pods it should be managing. All pods with label of app posts are the one to manage
+    matchLabels:
+      app: posts
+  template: # Pod to have a label of app: posts
+    metadata:
+      labels:
+        app: posts
+    spec: # specification or configuration options
+      containers:
+        - name: posts
+          image: yomi/post
+          imagePullPolicy: Never
