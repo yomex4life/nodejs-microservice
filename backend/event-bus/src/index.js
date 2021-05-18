@@ -10,10 +10,10 @@ app.use(bodyParser.json())
 app.post('/events', (req, res)=>{
     const events = req.body
 
-    axios.post('http://localhost:4000/events', events)
-    axios.post('http://localhost:5000/events', events)
-    axios.post('http://localhost:5001/events', events)
-    axios.post('http://localhost:5002/events', events)
+    axios.post('http://posts-clusterip-srv:4000/events', events)
+    //axios.post('http://localhost:5000/events', events)
+    //axios.post('http://localhost:5001/events', events)
+    //axios.post('http://localhost:5002/events', events)
 
     res.send({status: 'OK'})
 })
